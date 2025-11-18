@@ -1,8 +1,12 @@
 {
-  "name": "@finance-app/admin",
+  "name": "finance-app-admin",
   "version": "0.1.0",
   "description": "Finance App Admin Dashboard built with Next.js",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mohitpalan/finance-app-admin.git"
+  },
   "scripts": {
     "dev": "next dev -p 3001",
     "build": "next build",
