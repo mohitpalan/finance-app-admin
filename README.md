@@ -1,18 +1,18 @@
 # Finance App - Admin Dashboard
 
-Next.js-based admin dashboard for managing the Finance App.
+Next.js-based admin dashboard for managing the Finance App ecosystem.
 
 ## Overview
 
-Modern admin dashboard built with Next.js, providing comprehensive administrative capabilities for managing users, transactions, and system settings.
+Modern admin dashboard built with Next.js 14 App Router, providing comprehensive administrative capabilities for managing users, transactions, and viewing system analytics.
 
 ## Tech Stack
 
-- **Framework**: Next.js 14.2.3 (App Router)
-- **Language**: TypeScript 5.4+
-- **UI Library**: Custom components with Tailwind CSS & shadcn/ui inspired design
+- **Framework**: Next.js 14.2 (App Router)
+- **Language**: TypeScript 5.x
+- **UI Library**: Custom components with Tailwind CSS
 - **Styling**: Tailwind CSS 3.4+
-- **Data Fetching**: TanStack Query (React Query) 5.28+
+- **Data Fetching**: TanStack Query (React Query) 5.x
 - **Charts**: Recharts 2.12+
 - **Authentication**: NextAuth.js 4.24+
 - **HTTP Client**: Axios 1.6+
@@ -22,64 +22,53 @@ Modern admin dashboard built with Next.js, providing comprehensive administrativ
 ## Project Structure
 
 ```
-admin/
+finance-app-admin/
 ├── src/
-│   ├── app/                      # Next.js app directory (App Router)
-│   │   ├── layout.tsx           # Root layout with metadata
+│   ├── app/                      # Next.js App Router
+│   │   ├── layout.tsx           # Root layout
 │   │   ├── page.tsx             # Home (redirects to dashboard)
 │   │   ├── providers.tsx        # React Query & NextAuth providers
 │   │   ├── globals.css          # Global Tailwind styles
 │   │   ├── login/               # Login page
-│   │   ├── dashboard/           # Dashboard page with charts
-│   │   ├── users/               # User management page
-│   │   ├── transactions/        # Transaction management page
+│   │   ├── dashboard/           # Dashboard with charts
+│   │   ├── users/               # User management
+│   │   ├── transactions/        # Transaction management
 │   │   ├── settings/            # Settings page
-│   │   └── api/
-│   │       └── auth/            # NextAuth.js API routes
+│   │   └── api/auth/            # NextAuth API routes
 │   ├── components/               # Reusable components
-│   │   ├── ui/                  # Base UI components (Button, Card, Input, Label)
-│   │   └── layout/              # Layout components (Sidebar, Header, AdminLayout)
+│   │   ├── ui/                  # Base UI components
+│   │   └── layout/              # Layout components (Sidebar, Header)
 │   ├── lib/                      # Utility libraries
-│   │   ├── api-client.ts        # Axios API client with interceptors
-│   │   ├── auth-api.ts          # Authentication API functions
+│   │   ├── api-client.ts        # Axios client with interceptors
+│   │   ├── auth-api.ts          # Auth API functions
 │   │   ├── auth.ts              # NextAuth configuration
-│   │   └── utils.ts             # Helper functions (format, utils)
-│   ├── types/                    # TypeScript types & interfaces
-│   │   ├── index.ts             # Main type definitions
-│   │   └── next-auth.d.ts       # NextAuth type extensions
-│   └── middleware.ts             # Protected route middleware
+│   │   └── utils.ts             # Helper functions
+│   ├── types/                    # TypeScript types
+│   └── middleware.ts             # Route protection middleware
 ├── public/                       # Static assets
-├── tests/                        # Test files
-├── next.config.js               # Next.js configuration
-├── tailwind.config.ts           # Tailwind CSS configuration
-├── postcss.config.js            # PostCSS configuration
-├── .env.local                   # Environment variables (local)
-├── .env.example                 # Environment variables template
-├── package.json                 # Dependencies and scripts
-├── tsconfig.json                # TypeScript configuration
-└── README.md                    # This file
+├── next.config.js               # Next.js config
+├── tailwind.config.ts           # Tailwind config
+├── package.json
+├── tsconfig.json
+└── README.md
 ```
 
 ## Prerequisites
 
 - Node.js >= 18.0.0
 - npm >= 9.0.0
+- Running backend API (finance-app-backend)
 
 ## Installation
 
-From the root directory:
 ```bash
+cd finance-app-admin
 npm install
-```
-
-Or install admin dependencies only:
-```bash
-npm install --workspace=admin
 ```
 
 ## Configuration
 
-Create a `.env.local` file in the admin directory:
+Create a `.env.local` file:
 
 ```env
 # Application
@@ -99,51 +88,12 @@ NEXT_PUBLIC_ENABLE_ANALYTICS=false
 
 ## Development
 
-Start the development server:
 ```bash
-npm run admin:dev
+# Start development server
+npm run dev
+
+# Dashboard available at http://localhost:3001
 ```
-
-The dashboard will be available at `http://localhost:3001`
-
-## Testing
-
-Run all tests:
-```bash
-npm run admin:test
-```
-
-Run tests with coverage:
-```bash
-npm run admin:test:coverage
-```
-
-Run e2e tests:
-```bash
-npm run admin:test:e2e
-```
-
-## Building
-
-Build for production:
-```bash
-npm run admin:build
-```
-
-Start production server:
-```bash
-npm run admin:start
-```
-
-## Available Scripts
-
-- `npm run dev` - Start development server with hot-reload
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run test` - Run unit tests
-- `npm run test:watch` - Run tests in watch mode
-- `npm run lint` - Lint code
-- `npm run format` - Format code with Prettier
 
 ## Implemented Features
 
@@ -151,8 +101,8 @@ npm run admin:start
 - NextAuth.js with credentials provider
 - JWT-based session management
 - Protected routes with middleware
-- Auto token refresh and error handling
-- Login page with form validation
+- Auto token refresh
+- Login page with validation
 
 ### Dashboard
 - Key metrics cards (users, revenue, transactions)
@@ -164,146 +114,63 @@ npm run admin:start
 ### User Management
 - User listing table with search
 - User status badges (Active, Inactive, Suspended)
-- Role badges (Admin, Manager, User)
-- User avatars with initials
-- Sortable and filterable columns
+- Role badges (Admin, User)
+- Sortable columns
 
 ### Transaction Management
 - Transaction listing with details
 - Type indicators (Income, Expense, Transfer)
-- Status tracking (Completed, Pending, Failed, Cancelled)
+- Status tracking
 - Summary cards (Total Income, Expenses, Net Balance)
-- Export functionality placeholder
-- Amount formatting with color coding
+- Amount formatting
 
 ### Settings
 - General application settings
 - Security configuration
-- Maintenance mode toggle
 - API configuration display
-- Form validation and save functionality
 
 ### Layout & UI
 - Responsive sidebar navigation
-- Header with user info and notifications
-- Custom Tailwind CSS theme
-- shadcn/ui inspired components
+- Header with user info
+- Custom Tailwind theme
 - Loading states and error handling
 
-## Key Features (To Be Implemented)
+## Available Scripts
 
-### User Management
-- View all users
-- User details and activity
-- User verification and KYC
-- User blocking/suspension
-- Role and permission management
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm start` - Start production server
+- `npm test` - Run tests
+- `npm run lint` - Lint code
 
-### Transaction Management
-- View all transactions
-- Transaction filtering and search
-- Transaction details
-- Flagged transactions review
-- Transaction reports
-
-### Financial Oversight
-- System-wide financial analytics
-- Revenue tracking
-- Commission management
-- Reconciliation tools
-
-### Reports and Analytics
-- Dashboard with key metrics
-- User analytics
-- Transaction analytics
-- Custom report generation
-- Data export capabilities
-
-### System Administration
-- Application settings
-- Feature flags management
-- Email template management
-- Notification management
-- Audit logs
-- System health monitoring
-
-### Security
-- Activity monitoring
-- Fraud detection alerts
-- Security event logs
-- IP whitelisting
-- Two-factor authentication
-
-## Dashboard Layout
+## Dashboard Navigation
 
 ```
-- Login Page
-- Main Dashboard
-  - Sidebar Navigation
-    - Overview
-    - Users
-    - Transactions
-    - Reports
-    - Settings
-    - System Logs
-  - Top Navigation
-    - Search
-    - Notifications
-    - Profile Menu
-  - Main Content Area
-  - Footer
+├── Overview (Dashboard)
+├── Users
+├── Transactions
+├── Settings
+└── Logout
 ```
 
 ## API Integration
 
-All API calls will be made to the backend service with:
-- Admin authentication tokens
-- Role-based access control
-- Request/response interceptors
-- Error handling
+All API calls use:
+- Axios client with interceptors
+- Bearer token authentication
+- Automatic error handling
 - Loading states
 
-## Styling
+## Test Credentials
 
-- Responsive design for desktop and tablet
-- Consistent design system
-- Dark mode support
-- Accessibility compliance (WCAG 2.1)
-
-## Security Considerations
-
-- Secure authentication with NextAuth.js
-- Role-based access control (RBAC)
-- CSRF protection
-- XSS prevention
-- Secure session management
-- Audit logging for admin actions
-
-## Performance Optimization
-
-- Server-side rendering (SSR) for critical pages
-- Static generation for public pages
-- Image optimization with next/image
-- Code splitting
-- Caching strategy
-- Performance monitoring
+- **Admin**: `admin@financeapp.com` / `Admin123!`
 
 ## Deployment
 
 Recommended platforms:
 - Vercel (optimized for Next.js)
 - AWS Amplify
-- Netlify
 - Self-hosted with Docker
-
-## Contributing
-
-1. Create feature branch
-2. Write tests for new features
-3. Ensure all tests pass
-4. Follow Next.js best practices
-5. Test responsive design
-6. Submit pull request
 
 ## License
 
