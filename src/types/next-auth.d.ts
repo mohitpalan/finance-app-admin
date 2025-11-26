@@ -14,6 +14,8 @@ declare module 'next-auth' {
     lastName: string;
     role: string;
     status: string;
+    createdAt: string;
+    updatedAt: string;
   }
 }
 

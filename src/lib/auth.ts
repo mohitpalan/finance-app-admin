@@ -29,6 +29,8 @@ export const authOptions: NextAuthOptions = {
               lastName: response.user.lastName,
               role: response.user.role,
               status: response.user.status,
+              createdAt: response.user.createdAt,
+              updatedAt: response.user.updatedAt,
               accessToken: response.access_token,
             };
           }
@@ -53,6 +55,8 @@ export const authOptions: NextAuthOptions = {
           lastName: (user as any).lastName,
           role: (user as any).role,
           status: (user as any).status,
+          createdAt: (user as any).createdAt || new Date().toISOString(),
+          updatedAt: (user as any).updatedAt || new Date().toISOString(),
         };
       }
 
